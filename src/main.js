@@ -1,26 +1,19 @@
 import AppLoading from "expo-app-loading";
 import { useFonts } from "expo-font";
-import { useEffect, useState } from "react";
-import { View } from "react-native";
-import { MainMenu } from "./screens/MainMenu";
-import { TaskManager } from "./screens/TaskManager"
+import TaskNavigator from "./navigation/TaskNavigator";
 
 const App = () => {
-const [screen, setScreen] = useState('mainmenu')
+
 const [loaded] = useFonts({
   Oswald: require('../assets/fonts/Oswald-Regular.ttf'),
   OswaldBold: require('../assets/fonts/Oswald-Bold.ttf')
 })
-let content = <MainMenu setScreen={setScreen}/>
-useEffect(() => {
-  if(screen == 'taskmanager'){content = <TaskManager/>}
-}, [screen])
 
-if(!loaded) {return (<AppLoading/>)
-} else {
+if(!loaded) return (<AppLoading/>)
+
   return (
-    <View>{content}</View>
+    <TaskNavigator/>
     )}
-  }
+  
 
 export default App
