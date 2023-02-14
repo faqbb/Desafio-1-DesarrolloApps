@@ -21,7 +21,6 @@ export const TaskManager = ({navigation}) => {
 
     return (
             <View style={TaskManagerStyle.container}>
-                <Button onPress={() => {navigation.navigate('MainMenu')}}>Volver</Button>
                 <TaskInputBox task={task} setTask={setTask} onPress={onHandlerSubmit}/>
                 <TaskBox taskArray={tasks}/>
             </View>

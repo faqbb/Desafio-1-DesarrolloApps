@@ -1,18 +1,24 @@
 import AppLoading from "expo-app-loading";
 import { useFonts } from "expo-font";
-import TaskNavigator from "./navigation/TaskNavigator";
+import { ActivityIndicator, View } from "react-native";
+import { colors } from "./constants/colors";
+import MainNavigator from "./navigation";
+
 
 const App = () => {
 
 const [loaded] = useFonts({
-  Oswald: require('../assets/fonts/Oswald-Regular.ttf'),
-  OswaldBold: require('../assets/fonts/Oswald-Bold.ttf')
+  oswald: require('../assets/fonts/Oswald-Regular.ttf'),
+  oswaldBold: require('../assets/fonts/Oswald-Bold.ttf')
 })
 
-if(!loaded) return (<AppLoading/>)
+if(!loaded) return (
+  <View>
+    <ActivityIndicator size={"large"} color={colors.background}></ActivityIndicator>
+  </View>)
 
   return (
-    <TaskNavigator/>
+    <MainNavigator/>
     )}
   
 

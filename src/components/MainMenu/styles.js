@@ -9,14 +9,22 @@ export const MainMenuStyle = StyleSheet.create({
         fontFamily: fonts.primary
     },
     title:{
+        marginTop: 55,
+        textAlign: "center",        
         color: colors.white,
-        alignContent: "center",
-        justifyContent: "center",
-        fontFamily: fonts.primaryBold
+        fontFamily: 
+        fonts.primaryBold,
+        fontSize: 30,
+        textShadowRadius: 30,
+        textShadowColor: colors.black
     },
     buttonBox: {
+        marginTop: 10,
         backgroundColor: colors.grey,
-        padding: 10
+        padding: 10,
+        flex: 1,
+        justifyContent: "space-evenly",
+        flexBasis: 120
     },
     button: {
         backgroundColor: colors.darkRed,
