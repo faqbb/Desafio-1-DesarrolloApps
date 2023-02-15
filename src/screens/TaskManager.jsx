@@ -1,28 +1,27 @@
 import { useState } from "react"
-import { Button, View } from "react-native"
+import { View } from "react-native"
+import { FlatList } from "react-native"
+import { useSelector, useDispatch } from "react-redux"
 import { TaskManagerStyle } from "../components/TaskManager/styles"
 import {TaskBox} from "../components/TaskManager/TaskBox/TaskBox"
 import { TaskInputBox } from "../components/TaskManager/TaskInputBox/TaskInputBox"
 
 export const TaskManager = ({navigation}) => {
-    const [task, setTask] = useState('')
-    const [tasks, setTasks] = useState([])
+  const dispatch = useDispatch()
+  const finishedTasks = useSelector(state => state.tasks.finishedTasks)
+  const pendingTasks = useSelector(state => state.tasks.pendingTasks)
 
-    const onHandlerSubmit = () => {
-        setTasks([
-          ...tasks,
-          {
-            id: Math.random().toString(),
-            value: task
-          }
-        ])
-        setTask('')
-      }
+
+  const renderTasks = ({tasks}) => <TaskBox taskArray={tasks}/>
+  const keyExtractor = (item) => item.id.toString()
 
     return (
             <View style={TaskManagerStyle.container}>
-                <TaskInputBox task={task} setTask={setTask} onPress={onHandlerSubmit}/>
-                <TaskBox taskArray={tasks}/>
+                <TaskInputBox />
+                <FlatList
+                  data={pendingTasks}
+                  renderItem={renderTasks}
+                  keyExtractor={keyExtractor}/>
             </View>
             )
 }

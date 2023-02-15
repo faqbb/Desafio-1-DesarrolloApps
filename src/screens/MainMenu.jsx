@@ -12,7 +12,7 @@ export const MainMenu = ({navigation}) => {
             color={colors.black}></Button>
             <Button 
             style={MainMenuStyle.button}
-            onPress={() => {navigation.navigate('TaskManager')}} title='Tareas completadas'
+            onPress={() => {navigation.navigate('')}} title='Tareas completadas'
             color={colors.black}>
             </Button>
         </View>

@@ -24,7 +24,8 @@ export const MainMenuStyle = StyleSheet.create({
         padding: 10,
         flex: 1,
         justifyContent: "space-evenly",
-        flexBasis: 120
+        flexBasis: 120,
+        flexGrow: 0
     },
     button: {
         backgroundColor: colors.darkRed,

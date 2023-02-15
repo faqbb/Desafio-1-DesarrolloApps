@@ -3,6 +3,8 @@ import { useFonts } from "expo-font";
 import { ActivityIndicator, View } from "react-native";
 import { colors } from "./constants/colors";
 import MainNavigator from "./navigation";
+import { Provider } from "react-redux";
+import store from "./store";
 
 
 const App = () => {
@@ -18,7 +20,9 @@ if(!loaded) return (
   </View>)
 
   return (
-    <MainNavigator/>
+    <Provider store={store}>
+      <MainNavigator/>
+    </Provider>
     )}
   
 
